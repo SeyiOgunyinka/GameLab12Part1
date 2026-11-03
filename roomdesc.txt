@@ -1,0 +1,40 @@
+Living Room 
+The small living room contains a couch, coffee table, and two armchairs.
+Pictures of various cousins adorn the walls along with two of your aunt's wretched attempts
+at oil painting. You can't help but notice that the carpet could use a good vacuuming.
+Doorways lead east to the Kitchen, west to the Office, and north to the Bedroom.
+#
+
+Bedroom 
+This is your domain and has been since your family moved here when you were six.
+A nightstand with a Superman lamp sits next to your twin bed.
+Posters of various anime characters cover one wall. A pile of laundry,
+slowly but surely attaining sentience, occupies the far corner.
+You can return south to the Living Room or go up to the Attic.
+#
+
+Attic 
+A dusty attic filled with old cardboard boxes, forgotten furniture, 
+and belongings that have not been touched in years. Dim light shines through a small window, 
+revealing cobwebs in the corners and dust covering the wooden floor.
+You can only go down to the Bedroom.
+#
+Garage
+The garage contains parked cars, tools stored along the walls, and shelves
+filled with supplies. A workbench sits in the corner with equipment scattered across 
+its surface.
+You can only go north to the Kitchen.
+#
+
+Kitchen
+The kitchen has countertops, cabinets, a refrigerator, and a stove.
+Cooking utensils hang near the counter, while a sink sits beneath a window overlooking 
+the outside.
+You can go west to the Living Room or south to the Garage.
+#
+Office
+The quiet office has a desk, a comfortable chair, and shelves filled with books and
+study materials. Papers are arranged neatly across the desk, and a lamp provides light for
+reading and working.
+You can only go east to the Living Room.
+#
