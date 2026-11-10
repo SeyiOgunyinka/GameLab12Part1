@@ -1,4 +1,3 @@
-
 package inventory;
 
 import java.io.Serializable;

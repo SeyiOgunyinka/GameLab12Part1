@@ -17,6 +17,70 @@ public class Game {
     public static Room getCurrentRoom() {
         return currentRoom;
     }
+    public static void addInventoryItem(Item item) {
+        if (item != null && !inventory.contains(item)) {
+            inventory.add(item);
+            print(item.getName() + " was added to your inventory.");
+        }
+    }
+
+    public static void openItem(String itemName) {
+
+        Item item = currentRoom.getItem(itemName);
+
+        if (item == null) {
+            for (Item i : inventory) {
+                if (i.getName().equalsIgnoreCase(itemName)) {
+                    item = i;
+                    break;
+                }
+            }
+        }
+
+        if (item == null) {
+            print("You cannot find that item.");
+        } else {
+            item.open();
+        }
+    }
+
+    public static void closeItem(String itemName) {
+
+        Item item = currentRoom.getItem(itemName);
+
+        if (item == null) {
+            for (Item i : inventory) {
+                if (i.getName().equalsIgnoreCase(itemName)) {
+                    item = i;
+                    break;
+                }
+            }
+        }
+
+        if (item == null) {
+            print("You cannot find that item.");
+        } else {
+            item.close();
+        }
+    }
+
+    public static void readItem(String itemName) {
+
+        Item item = null;
+
+        for (Item i : inventory) {
+            if (i.getName().equalsIgnoreCase(itemName)) {
+                item = i;
+                break;
+            }
+        }
+
+        if (item == null) {
+            print("You must have that item in your inventory to read it.");
+        } else {
+            item.read();
+        }
+    }
 
     public static void move(String direction) {
 
@@ -64,7 +128,8 @@ public class Game {
 
         if (item == null) {
             print("That item is not in this room.");
-        } else if (item.getName().equalsIgnoreCase("couch")
+        } else if (item instanceof Safe
+                || item.getName().equalsIgnoreCase("couch")
                 || item.getName().equalsIgnoreCase("bed")) {
             print("You cannot pick up the " + item.getName() + ".");
         } else if (inventory.contains(item)) {
@@ -81,7 +146,8 @@ public class Game {
 
         if (item == null) {
             print("There is no item in this room.");
-        } else if (item.getName().equalsIgnoreCase("couch")
+        } else if (item instanceof Safe
+                || item.getName().equalsIgnoreCase("couch")
                 || item.getName().equalsIgnoreCase("bed")) {
             print("You cannot pick up the " + item.getName() + ".");
         } else if (inventory.contains(item)) {
@@ -184,6 +250,24 @@ public class Game {
                     useItem(usedItem);
                     break;
 
+                case "open":
+                    print("What item would you like to open?");
+                    String openedItem = input.nextLine().trim();
+                    openItem(openedItem);
+                    break;
+
+                case "close":
+                    print("What item would you like to close?");
+                    String closedItem = input.nextLine().trim();
+                    closeItem(closedItem);
+                    break;
+
+                case "read":
+                    print("What item would you like to read?");
+                    String readItem = input.nextLine().trim();
+                    readItem(readItem);
+                    break;
+
                 case "exit":
                     print("Thanks for playing!");
                     break;
@@ -195,6 +279,19 @@ public class Game {
                     } else if (command.startsWith("use ")) {
                         String itemName = command.substring(4).trim();
                         useItem(itemName);
+
+                    } else if (command.startsWith("open ")) {
+                        String itemName = command.substring(5).trim();
+                        openItem(itemName);
+
+                    } else if (command.startsWith("close ")) {
+                        String itemName = command.substring(6).trim();
+                        closeItem(itemName);
+
+                    } else if (command.startsWith("read ")) {
+                        String itemName = command.substring(5).trim();
+                        readItem(itemName);
+
                     } else {
                         print("Invalid command.");
                     }

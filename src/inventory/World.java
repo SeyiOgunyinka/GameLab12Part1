@@ -40,7 +40,9 @@ public class World {
 
         office.setLocked(true);
         attic.setLocked(true);
-
+        Safe safe = new Safe(attic);
+        attic.addItem(safe);
+        
         livingRoom.addExit(kitchen, 0);
         livingRoom.addExit(office, 1);
         livingRoom.addExit(bedroom, 2);

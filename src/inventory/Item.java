@@ -20,4 +20,15 @@ public class Item {
     public void use() {
         System.out.println("You can't use this item.");
     }
+    public void open() {
+        System.out.println("You cannot open this item.");
+    }
+
+    public void close() {
+        System.out.println("You cannot close this item.");
+    }
+
+    public void read() {
+        System.out.println("You cannot read this item.");
+    }
 }
